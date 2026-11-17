@@ -1,3 +1,6 @@
+let humanScore = 0.     // 玩家初始分
+let computerScore = 0.  //电脑初始分
+
 // 让电脑随机出石头剪刀布。
 function  getComputerChoice() {
     // 随机数分成三份。
