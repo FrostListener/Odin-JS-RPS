@@ -17,11 +17,29 @@ function  getComputerChoice() {
 
 // 收集玩家的选项。
 function getHumanChoice() {
-    let humanChoice = prompt('请从Scissors（剪刀），Rock（石头），Paper（布）里面选择一个');
-    return humanChoice
+    let choice = prompt('请从Scissors（剪刀），Rock（石头），Paper（布）里面选择一个');
+    return choice
 }
 
 // 转化大小写，方便玩家输入。
 function capitalizeFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
+
+// 猜拳单次运行逻辑。
+function playRound(humanChoice,computerChoice) {
+    humanChoice = capitalizeFirst(humanChoice);
+    computerChoice = capitalizeFirst(computerChoice);
+    if (humanChoice === computerChoice) {
+        console.log('平局！')
+    } else if ((humanChoice==='Rock' && computerChoice==='Scissors') || 
+              (humanChoice==='Scissors' && computerChoice==='Paper') ||
+              (humanChoice==='Paper' && computerChoice==='Rock')) {
+                console.log('你赢了！');
+              }
+      else {console.log('你输了！')}
+}
+
+const humanSelection = getHumanChoice()
+const computerSeletion = getComputerChoice()
+playRound(humanSelection,computerSeletion) 
