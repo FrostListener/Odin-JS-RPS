@@ -12,12 +12,16 @@ function  getComputerChoice() {
         return 'Paper';
     } else {
         return 'Scissors'
-    }
+    };
 }
 
 // 收集玩家的选项。
 function getHumanChoice() {
-    let humanChoice = prompt('请从Scissors（剪刀），Rock（石头），Paper（布）里面选择一个')
+    let humanChoice = prompt('请从Scissors（剪刀），Rock（石头），Paper（布）里面选择一个');
     return humanChoice
 }
-let humanChoice = getHumanChoice()
+
+// 转化大小写，方便玩家输入。
+function capitalizeFirst(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
