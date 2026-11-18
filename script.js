@@ -26,20 +26,44 @@ function capitalizeFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-// 猜拳单次运行逻辑。
 function playRound(humanChoice,computerChoice) {
     humanChoice = capitalizeFirst(humanChoice);
     computerChoice = capitalizeFirst(computerChoice);
     if (humanChoice === computerChoice) {
         console.log('平局！')
     } else if ((humanChoice==='Rock' && computerChoice==='Scissors') || 
-              (humanChoice==='Scissors' && computerChoice==='Paper') ||
-              (humanChoice==='Paper' && computerChoice==='Rock')) {
-                console.log('你赢了！');
-              }
-      else {console.log('你输了！')}
+            (humanChoice==='Scissors' && computerChoice==='Paper') ||
+            (humanChoice==='Paper' && computerChoice==='Rock')) {
+                console.log('你赢了！')
+                humanScore++;
+        }
+    else {
+            console.log('你输了！');
+            computerScore++;
+    }
 }
 
-const humanSelection = getHumanChoice()
-const computerSeletion = getComputerChoice()
-playRound(humanSelection,computerSeletion) 
+// 构建五个回合的整体游戏。
+function playGame() {
+    const humanSelection = getHumanChoice()
+    const computerSelection = getComputerChoice()
+    let gameRound = 0
+    while (gameRound != 5) {
+        const humanSelection = getHumanChoice()
+        const computerSelection = getComputerChoice()
+        console.log(gameRound)
+        console.log(humanSelection,computerSelection)
+        console.log(playRound(humanSelection,computerSelection))
+        gameRound++
+    }
+
+    if (humanScore > computerScore) {
+        console.log('你赢了！');
+    } else if (humanScore < computerScore) {
+        console.log('你输了！')
+    } else {
+        console.log('平手！')
+    }
+}
+playGame()
+
