@@ -26,6 +26,7 @@ function capitalizeFirst(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
+// 单次回合。
 function playRound(humanChoice,computerChoice) {
     humanChoice = capitalizeFirst(humanChoice);
     computerChoice = capitalizeFirst(computerChoice);
@@ -45,9 +46,9 @@ function playRound(humanChoice,computerChoice) {
 
 // 构建五个回合的整体游戏。
 function playGame() {
-    const humanSelection = getHumanChoice()
-    const computerSelection = getComputerChoice()
     let gameRound = 0
+
+    // 一段循环。
     while (gameRound != 5) {
         const humanSelection = getHumanChoice()
         const computerSelection = getComputerChoice()
